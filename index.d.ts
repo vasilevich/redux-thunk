@@ -1,17 +1,15 @@
-import {Middleware, Dispatch} from "redux";
+import {Middleware, Dispatch, Action} from "redux";
 
-
-export interface ThunkAction<R, S, E> extends Action {
+export interface ThunkAction<R, S, E> {
   (dispatch: Dispatch<S>, getState: () => S,
-   extraArgument: E): R; 
+   extraArgument: E): R;
 }
+
 declare module "redux" {
   export interface Dispatch<S> {
-	<R, E, A extends Action>(asyncAction: ThunkAction<R, S, E> | A): R;
+    <R, E, A extends Action>(asyncAction: ThunkAction<R, S, E> | A): R;
   }
 }
-
-
 declare const thunk: Middleware & {
   withExtraArgument(extraArgument: any): Middleware;
 };
