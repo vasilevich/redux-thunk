@@ -7,7 +7,7 @@ export interface ThunkAction<R, S, E> extends Action {
 }
 declare module "redux" {
   export interface Dispatch<S> {
-    <R, E>(asyncAction: ThunkAction<R, S, E>): R;
+	<R, E, A extends Action>(asyncAction: ThunkAction<R, S, E> | A): R;
   }
 }
 
