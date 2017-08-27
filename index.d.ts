@@ -1,4 +1,4 @@
-import {Middleware, Dispatch} from "redux";
+import {Middleware, Dispatch, Action} from "redux";
 
 /**
 	Should extend Action
