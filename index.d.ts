@@ -1,7 +1,7 @@
 import {Middleware, Dispatch, Action} from "redux";
 
 export interface ThunkAction<R, S, E> {
-  (dispatch: Dispatch<S>, getState: () => S,
+  (dispatch: Dispatch<S> | any, getState: () => S,
    extraArgument: E): R;
 }
 
